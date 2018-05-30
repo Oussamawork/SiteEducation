@@ -1,4 +1,10 @@
-@extends ('layouts.master') @section ('title') Page 1 @endsection @section ('content')
+@extends ('layouts.master') 
+
+@section ('title') 
+    Page 1 
+@endsection 
+
+@section ('content')
 <!-- Courses Area Start -->
 <div class="courses-area pt-150 text-center">
     <div class="container">
