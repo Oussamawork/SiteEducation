@@ -11,14 +11,34 @@
 |
 */
 
-/* Route::get('/', function () {
+Route::get('admin/home', function () {
     return view('admin.index', ['message' => 'Home']);
-})->name('first.index');
+})->name('admin.home');
 
-Route::post('register1', [
-    'uses' => 'IdentificationController@getIdentification',
-    'as' => 'verification',
+Route::group(['prefix' => 'admin'], function() {
+
+    Route::get('Liste-Documents',[
+        'uses' => 'PostController@getview',
+        'as' => 'admin.listedocuments'
+    ]);
+    
+
+});
+
+Route::post('authentification', [
+    'uses' => 'LoginController@signin',
+    'as' => 'authentification',
     'middleware' => 'guest'
+]);
+
+Route::get('identification', [
+    'uses' => 'IdentificationController@getview',
+    'as' => 'identification',
+]);
+
+Route::post('edit', [
+    'uses' => 'RegisterController@edit',
+    'as' => 'edit'
 ]);
 
 Route::get('identificationP', [
@@ -27,36 +47,15 @@ Route::get('identificationP', [
     'middleware' => 'guest'
 ]);
 
-Route::post('register2', [
-    'uses' => 'IdentificationController@getIdentificationP',
-    'as' => 'verificationP',
-    'middleware' => 'guest'
-]);
-
-Route::post('edit', [
-    'uses' => 'RegisterController@edit',
-    'as' => 'edit'
-]);
-
-Route::group(['prefix' => 'admin'], function() {
-
-    Route::get('Liste-Courses',[
-        'uses' => 'PostController@getview',
-        'as' => 'admin.listecourses'
-    ]);
-
-});
- */
-
-Route::get('identification', [
-    'uses' => 'IdentificationController@getview',
-    'as' => 'identification',
-    'middleware' => 'guest'
-]);
-
 Route::post('register1', [
     'uses' => 'IdentificationController@getIdentification',
     'as' => 'verification',
+    'middleware' => 'guest'
+]);
+
+Route::post('register2', [
+    'uses' => 'IdentificationController@getIdentificationP',
+    'as' => 'verificationP',
     'middleware' => 'guest'
 ]);
 

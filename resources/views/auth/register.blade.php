@@ -57,6 +57,24 @@
                             </div>
                         </div>
 
+                        @if( !isset($is_admin) )
+                            <div class="form-group row">
+                                <label for="studyarea" class="col-md-4 col-form-label text-md-right">{{ __('studyarea') }}</label>
+                                <div class="col-md-6">
+                                    <select class="form-control" name="studyarea">
+                                        @foreach($studyareas as $studyarea)
+                                            <option value= {{$studyarea->id}} > {{$studyarea->title}} </option>
+                                        @endforeach
+                                    </select>
+                                    @if ($errors->has('studyarea'))
+                                        <span class="invalid-feedback">
+                                            <strong>{{ $errors->first('studyarea') }}</strong>
+                                        </span>
+                                    @endif
+                                </div>
+                            </div>
+                        @endif
+
                         <div class="form-group row">
                             <label for="password" class="col-md-4 col-form-label text-md-right">{{ __('Password') }}</label>
 

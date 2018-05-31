@@ -14,7 +14,7 @@
                                     <li><a href=" {{ route('identification') }} ">signup</a>
                                         <ul>
                                                 <li><a href="{{ route('identification') }}">Students</a></li>
-                                                {{-- <li><a href=" {{ route('identificationP') }} ">Professors</a></li> --}}
+                                                <li><a href=" {{ route('identificationP') }} ">Professors</a></li>
                                         </ul>
                                     </li>
                                 @endif

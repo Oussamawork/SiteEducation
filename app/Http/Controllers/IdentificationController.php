@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\User;
+use App\Studyarea;
 
 class IdentificationController extends Controller
 {
@@ -20,7 +21,8 @@ class IdentificationController extends Controller
         ]);
         //  dd (filled(User::where('identification',$request['identification'])->get()));
         if (filled(User::where('identification', $request['identification'])->first())) {
-            return view('auth.register', ['identification' => $request['identification']]);
+            $studyareas = Studyarea::all();
+            return view('auth.register', ['identification' => $request['identification'], 'studyareas' => $studyareas]);
         } else {
             return redirect()->back()->with(['info' => 'CNE NOT FOUND, PLEASE CONTACT YOUR PROFESSOR', 'identification' => $request['identification']]);
         }
@@ -35,7 +37,7 @@ class IdentificationController extends Controller
     public function getIdentificationP(Request $request)
     {
         $this->validate($request, [
-            'identification' => 'required'
+            'identification' => 'required|between:1,9'
         ]);
         //  dd (filled(User::where('identification',$request['identification'])->get()));
         if (filled(User::where('identification', $request['identification'])->first())) {
