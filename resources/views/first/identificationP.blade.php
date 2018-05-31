@@ -1,4 +1,4 @@
-@extends ('layouts.master')
+{{-- @extends ('layouts.master')
 
 @section ('title')
     Identification
@@ -46,4 +46,4 @@
         </div>
 
         <!-- Register end --> 
-@endsection
+@endsection --}}

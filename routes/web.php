@@ -11,15 +11,9 @@
 |
 */
 
-Route::get('/', function () {
+/* Route::get('/', function () {
     return view('admin.index', ['message' => 'Home']);
 })->name('first.index');
-
-Route::get('identification', [
-    'uses' => 'IdentificationController@getview',
-    'as' => 'identification',
-    'middleware' => 'guest'
-]);
 
 Route::post('register1', [
     'uses' => 'IdentificationController@getIdentification',
@@ -46,17 +40,30 @@ Route::post('edit', [
 
 Route::group(['prefix' => 'admin'], function() {
 
-    /* Route::get('create', [
-        'uses' => 'PostController@getAdminCreate',
-        'as' => 'admin.create'
-    ]); */
-
     Route::get('Liste-Courses',[
         'uses' => 'PostController@getview',
         'as' => 'admin.listecourses'
     ]);
 
 });
+ */
+
+Route::get('identification', [
+    'uses' => 'IdentificationController@getview',
+    'as' => 'identification',
+    'middleware' => 'guest'
+]);
+
+Route::post('register1', [
+    'uses' => 'IdentificationController@getIdentification',
+    'as' => 'verification',
+    'middleware' => 'guest'
+]);
+
+Route::post('edit', [
+    'uses' => 'RegisterController@edit',
+    'as' => 'edit'
+]);
 
 Auth::routes();
 

@@ -1,4 +1,4 @@
-@extends ('layouts.master') 
+{{-- @extends ('layouts.master') 
 
 @section ('title') 
     Page 1 
@@ -48,4 +48,4 @@
     </div>
 </div>
 <!-- Courses Area End -->
-@endsection
+@endsection --}}

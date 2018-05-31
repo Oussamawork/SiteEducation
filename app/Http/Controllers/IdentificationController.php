@@ -1,18 +1,19 @@
 <?php
 
 namespace App\Http\Controllers;
+
 use Illuminate\Http\Request;
 use App\User;
 
 class IdentificationController extends Controller
 {
     // Students 
-    public function getview() 
+    public function getview()
     {
         return view('first.identification', ['message' => 'Sign up']);
     }
 
-    public function getIdentification(Request $request) 
+    public function getIdentification(Request $request)
     {
         $this->validate($request, [
             'identification' => 'required|numeric|digits:10'
@@ -26,12 +27,12 @@ class IdentificationController extends Controller
     }
 
     //professors
-    public function getviewP() 
+    public function getviewP()
     {
         return view('first.identificationP');
     }
 
-    public function getIdentificationP(Request $request) 
+    public function getIdentificationP(Request $request)
     {
         $this->validate($request, [
             'identification' => 'required'
