@@ -6,6 +6,9 @@ use Illuminate\Http\Request;
 use Auth;
 
 use App\Post;
+use App\Studyarea;
+use App\Type;
+use App\Module;
 
 class PostController extends Controller
 {
@@ -14,25 +17,31 @@ class PostController extends Controller
         $id = Auth::user()->id;
         // dd ($id);
         $posts = Post::where('professor_id', $id)->get();
-        return view('admin.listedocuments', ['message' => 'Courses', 'posts' => $posts]);
+        $message = 'courses';
+        return view('admin.listedocuments', compact('posts', 'message'));
     }
 
     public function getCreatePost()
     {
-        
-        return view('admin.createdocument', ['message' => 'Create']);
+        $studyareas = Studyarea::all()->pluck("title", "id");
+        $types = Type::all();
+        $message = 'create';
+        return view('admin.createdocument', compact('studyareas', 'types', 'message'));
+    }
+    //Ajax work
+    public function getModules($id)
+    {
+        $modules = Module::where("studyarea_id", $id)->pluck("title", "id");
+        return json_encode($modules);
     }
 
     public function upload(Request $request)
     {
         if ($request->hasFile('file')) {
             $fileExt = $request->file('file')->getClientOriginalExtension();
-            $fileName = time().'docs.'.$fileExt;
-            $request->file('file')->storeAs('public/docs/',$fileName);
+            $fileName = time() . 'docs.' . $fileExt;
+            $request->file('file')->storeAs('public/docs/', $fileName);
             return redirect()->back()->with('info', 'Published Succed');
         }
-
     }
-
-
 }

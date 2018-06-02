@@ -32,6 +32,10 @@ Route::group(['prefix' => 'admin'], function() {
         'as' => 'admin.ajoutdocument'
     ]);
     
+    //Ajax route
+    Route::get('modules/get/{id}', [
+        'uses' => 'PostController@getModules',
+    ]);
 
 });
 
