@@ -37,10 +37,22 @@ class PostController extends Controller
 
     public function upload(Request $request)
     {
+        $user_id = Auth::user()->id;
+
         if ($request->hasFile('file')) {
             $fileExt = $request->file('file')->getClientOriginalExtension();
             $fileName = time() . 'docs.' . $fileExt;
             $request->file('file')->storeAs('public/docs/', $fileName);
+
+            $post = new Post();
+            $post->title = $request['title'];
+            $post->description = $request['description'];
+            $post->file = $fileName;
+            $post->professor_id = $user_id;
+            $post->module_id = $request['module'];
+            $post->type_id = $request['type'];
+            $post->save();
+            
             return redirect()->back()->with('info', 'Published Succed');
         }
     }
