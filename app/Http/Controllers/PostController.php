@@ -33,6 +33,7 @@ class PostController extends Controller
     {
         $modules = Module::where("studyarea_id", $id)->pluck("title", "id");
         return json_encode($modules);
+        
     }
 
     public function upload(Request $request)
@@ -52,7 +53,7 @@ class PostController extends Controller
             $post->module_id = $request['module'];
             $post->type_id = $request['type'];
             $post->save();
-            
+
             return redirect()->back()->with('info', 'Published Succed');
         }
     }
