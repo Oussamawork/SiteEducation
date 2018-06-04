@@ -37,6 +37,39 @@ Route::group(['prefix' => 'admin'], function() {
         'uses' => 'PostController@getModules',
     ]);
 
+    //ansuprimiha db mora maghanhiyed doc details
+    Route::get('Document-details/{id}',[
+        'uses' => 'PostController@getDocDetails',
+        'as' => 'admin.documentdetails',
+        'middleware' => 'auth'
+    ]);
+
+    Route::get('display/{id}', [
+        'uses' => 'PostController@getPDF',
+        'as' => 'display'
+    ]);
+
+    Route::get('download/{id}', [
+        'uses' => 'PostController@DownloadPDF',
+        'as' => 'download'
+    ]);
+
+    Route::get('delete/{id}', [
+        'uses' => 'PostController@DeletePost',
+        'as' => 'delete'
+    ]);
+    
+    Route::get('update/{id}', [
+        'uses' => 'PostController@UpdatePostview',
+        'as' => 'update'
+    ]);
+
+    Route::post('update', [
+        'uses' => 'PostController@UpdatePost',
+        'as' => 'admin.update'
+    ]);
+
+
 });
 
 Route::post('authentification', [

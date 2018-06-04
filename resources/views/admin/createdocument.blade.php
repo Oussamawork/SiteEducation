@@ -33,10 +33,20 @@ Add Document
                                 <div class="row">
                                     <div class="col-md-12">
                                         <div class="form-group">
-                                            <input type="text" class="form-control" placeholder="Title" name="title"/>
+                                            <input type="text" class="form-control" placeholder="Title" name="title" value="{{ Session('title') ? Session('title') : old('title') }}"/>
+                                            @if ($errors->has('title'))
+                                                <span class="invalid-feedback">
+                                                    <h5>{{ $errors->first('title') }}</h5>
+                                                </span>
+                                             @endif
                                         </div>
                                         <div class="form-group">
-                                            <textarea class="form-control" placeholder="Description" rows="3" name="description"></textarea>
+                                            <textarea class="form-control" placeholder="Description" rows="3" name="description" value="{{ Session('description') ? Session('description') : old('description') }}"></textarea>
+                                            @if ($errors->has('description'))
+                                                <span class="invalid-feedback">
+                                                    <h5>{{ $errors->first('description') }}</h5>
+                                                </span>
+                                             @endif
                                         </div>
                                     </div>
                                 </div>
@@ -64,7 +74,6 @@ Add Document
                                         <div class="form-group">
                                             <label for="category">Type</label>
                                             <select class="form-control" name="type">
-                                                <option>--Select Document Type--</option>
                                                 @foreach($types as $type)
                                                     <option value="{{ $type->id }}">{{ $type->title }}</option>
                                                 @endforeach
@@ -80,19 +89,26 @@ Add Document
                                                 <span class="input-group-btn">
                                                     <div class="btn btn-default image-preview-input">
                                                         <span class="glyphicon glyphicon-folder-open"></span>
-                                                        <span class="image-preview-input-title">Browse</span>
-                                                        <input type="file" accept=".xlsx,.xls,image/*,.doc, .docx,.ppt, .pptx,.txt,.pdf" name="file">
+                                                        <span class="image-preview-input-title">Browse (Pdf File)</span>
+                                                        <input type="file" accept=".pdf" name="file">
                                                     </div>
                                                 </span>
                                             </div>
+                                            @if ($errors->has('file'))
+                                                <span class="invalid-feedback">
+                                                    <h5>{{ $errors->first('file') }}</h5>
+                                                </span>
+                                             @endif
                                         </div>
                                     </div>
                                 </div>
 
                                 <div class="row">
                                     <div class="col-md-12">
+                                    <a class="btn btn-primary btn-sm" href="{{ route('admin.home') }}" role="button"><span class="glyphicon glyphicon-circle-arrow-left"></span>Back</a>
                                         <button type="submit" class="btn btn-danger btn-sm">
-                                            <span class="glyphicon glyphicon-floppy-disk"></span>Publish</button>
+                                            <span class="glyphicon glyphicon-floppy-disk"></span>Publish
+                                        </button>
                                     </div>
                                 </div>
 
