@@ -35,17 +35,13 @@ Add Document
                                         <div class="form-group">
                                             <input type="text" class="form-control" placeholder="Title" name="title" value="{{ Session('title') ? Session('title') : old('title') }}"/>
                                             @if ($errors->has('title'))
-                                                <span class="invalid-feedback">
                                                     <h5>{{ $errors->first('title') }}</h5>
-                                                </span>
                                              @endif
                                         </div>
                                         <div class="form-group">
                                             <textarea class="form-control" placeholder="Description" rows="3" name="description" value="{{ Session('description') ? Session('description') : old('description') }}"></textarea>
                                             @if ($errors->has('description'))
-                                                <span class="invalid-feedback">
                                                     <h5>{{ $errors->first('description') }}</h5>
-                                                </span>
                                              @endif
                                         </div>
                                     </div>
@@ -54,12 +50,17 @@ Add Document
                                     <div class="col-md-4">
                                         <div class="form-group">
                                             <label for="category">Studyarea</label>
-                                            <select class="form-control" name="studyarea">
-                                                <option>--Select Studyarea--</option>
-                                                @foreach($studyareas as $studyarea => $value)
-                                                    <option value="{{ $studyarea }}">{{ $value }}</option>
-                                                @endforeach
+                                            <select class="form-control" name="studyarea" {{ $errors->has('studyarea') ? ' is-invalid ' : ''}}>
+                                                    <option value="">--Select Studyarea--</option>
+                                                    @foreach($studyareas as $studyarea => $value)
+                                                        <option value="{{ $studyarea }}">{{ $value }}</option>
+                                                    @endforeach
                                             </select>
+                                            @if ($errors->has('studyarea'))
+                                                <span class="invalid-feedback"></span>
+                                                    <h5>{{ $errors->first('studyarea') }}</h5>
+                                                
+                                             @endif
                                         </div>
                                     </div>
                                     <div class="col-md-4">
@@ -68,6 +69,11 @@ Add Document
                                             <select class="form-control" name="module">
                                                 <option>--Select The Studyarea First--</option>
                                             </select>
+                                            @if ($errors->has('module'))
+                                                <span class="invalid-feedback">
+                                                    <h5>{{ $errors->first('module') }}</h5>
+                                                </span>
+                                             @endif
                                         </div>
                                     </div>
                                     <div class="col-md-4">
@@ -102,6 +108,7 @@ Add Document
                                         </div>
                                     </div>
                                 </div>
+                                
 
                                 <div class="row">
                                     <div class="col-md-12">

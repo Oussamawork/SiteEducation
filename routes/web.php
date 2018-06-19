@@ -69,6 +69,25 @@ Route::group(['prefix' => 'admin'], function() {
         'as' => 'admin.update'
     ]);
 
+    Route::get('studyarea/{studyarea}', [
+        'uses' => 'PostController@getStudyareaModls',
+        'as' => 'studyarea'
+    ]);
+
+    Route::get('studyarea', [
+        'uses' => 'StudyareaController@viewaddStudyarea',
+        'as' => 'admin.addStudy'
+    ]);
+
+    Route::post('studyarea', [
+        'uses' => 'StudyareaController@addStudyarea',
+        'as' => 'admin.addStudy'
+    ]);
+
+    Route::post('module', [
+        'uses' => 'ModuleController@addModule',
+        'as' => 'admin.addModule'
+    ]);
 
 });
 

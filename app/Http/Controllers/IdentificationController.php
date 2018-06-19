@@ -20,9 +20,16 @@ class IdentificationController extends Controller
             'identification' => 'required|numeric|digits:10'
         ]);
         //  dd (filled(User::where('identification',$request['identification'])->get()));
+        
+
+
         if (filled(User::where('identification', $request['identification'])->first())) {
-            $studyareas = Studyarea::all();
-            return view('auth.register', ['identification' => $request['identification'], 'studyareas' => $studyareas]);
+            if (!filled(User::where('identification', $request['identification'])->value('email'))) {
+                $studyareas = Studyarea::all();
+                return view('auth.register', ['identification' => $request['identification'], 'studyareas' => $studyareas]);
+            } else {
+                return redirect()->back()->with('info', 'This CNE is already used.');
+            }
         } else {
             return redirect()->back()->with(['info' => 'CNE NOT FOUND, PLEASE CONTACT YOUR PROFESSOR', 'identification' => $request['identification']]);
         }
@@ -41,7 +48,11 @@ class IdentificationController extends Controller
         ]);
         //  dd (filled(User::where('identification',$request['identification'])->get()));
         if (filled(User::where('identification', $request['identification'])->first())) {
-            return view('auth.register', ['identification' => $request['identification'], 'is_admin' => 1]);
+            if (!filled(User::where('identification', $request['identification'])->value('email'))) {
+                return view('auth.register', ['identification' => $request['identification'], 'is_admin' => 1]);            
+            } else {
+                return redirect()->back()->with('info', 'This CIN is already used.');
+            }
         } else {
             return redirect()->back()->with(['info' => 'CNI NOT FOUND, PLEASE CONTACT THE TECHNICAL SUPPORT', 'identification' => $request['identification']]);
         }

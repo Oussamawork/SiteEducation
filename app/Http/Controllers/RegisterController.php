@@ -12,9 +12,6 @@ use App\Student;
 class RegisterController extends Controller
 {
 
-    /*use RegistersUsers;
-    protected $redirectTo = '/home';*/
-
     public function edit(Request $request)
     {
         $this->validate($request, [
@@ -51,6 +48,6 @@ class RegisterController extends Controller
             $professor->id = $id;
             $professor->save();
         }
-       return view('auth.login');
+        return view('auth.login');
     }
 }

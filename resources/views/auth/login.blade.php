@@ -12,6 +12,13 @@
             <div class="col-md-6 col-md-offset-3 text-center">
                 <div class="login">
                     <div class="login-form-container">
+                        @if(Session('info'))
+                            <div class="row text-center">
+                                <div class="col-md-12">
+                                    <p class="alert alert-danger danger">{{ Session('info') }}</p>
+                                </div>
+                            </div>
+                        @endif
                         <div class="login-text">
                             <h2>login</h2>
                             <span>Please login using account detail bellow.</span>

@@ -42,7 +42,7 @@ Add Document
                                              @endif
                                         </div>
                                         <div class="form-group">
-                                            <textarea class="form-control" placeholder="Description" rows="3" name="description"></textarea>
+                                            <textarea class="form-control" placeholder="Description" rows="3" name="description">{{ $post->description }}</textarea>
                                             @if ($errors->has('description'))
                                                 <span class="invalid-feedback">
                                                     <h5>{{ $errors->first('description') }}</h5>
@@ -55,9 +55,9 @@ Add Document
                                     <div class="col-md-4">
                                         <div class="form-group">
                                             <label for="category">Type</label>
-                                            <select class="form-control" name="type">
+                                            <select class="form-control" name="type">   
                                                 @foreach($types as $type)
-                                                    <option value="{{ $type->id }}">{{ $type->title }}</option>
+                                                    <option  {{ $type->id == $post->type_id ? 'selected' : ''}} value="{{ $type->id }}">{{ $type->title }}</option>
                                                 @endforeach
                                             </select>
                                         </div>

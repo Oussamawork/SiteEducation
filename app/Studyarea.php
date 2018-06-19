@@ -8,16 +8,17 @@ class Studyarea extends Model
 {
     public function modules()
     {
-        return $this->hasMany('Module');
+        return $this->hasMany('App\Module');
     }
 
     public function students()
     {
-        return $this->hasMany('Student');
+        return $this->hasMany('App\Student');
     }
 
     public function professors()
     {
-        return $this->belongsToMany('Professor');
+        return $this->belongsToMany('App\Professor');
     }
+
 }

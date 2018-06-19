@@ -21,7 +21,7 @@
                 <div class="single-course">
                     <div class="course-content">
                         <h3 class="text-center">
-                            <a href="{{ route('admin.listedocuments') }}">Consulter les Documents</a>
+                            <a href="{{ route('admin.listedocuments') }}">Consulter Documents</a>
                         </h3>
                     </div>
                 </div>
@@ -39,7 +39,7 @@
                         <div class="single-course">
                             <div class="course-content">
                                 <h3 class="text-center">
-                                    <a href="course-details.html">Ajouter Notes</a>
+                                    <a href="{{ route('admin.addStudy') }}" >Ajouter Filière \ Module</a>
                                 </h3>
                             </div>
                         </div>

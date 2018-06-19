@@ -8,6 +8,7 @@ use App\Htpp\Requests;
 use Auth;
 
 use App\User;
+use App\Studyarea;
 use App\Professor;
 
 class LoginController extends Controller
