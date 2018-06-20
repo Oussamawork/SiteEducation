@@ -130,6 +130,6 @@ Add Document
 
 {{-- AJAX --}}
 <script src="{{ asset('js/app.js') }}"></script>
-<script src="{{ asset('js/custom.js') }}"></script>
+<script src="{{ asset('js/customU.js') }}"></script>
 
 @endsection

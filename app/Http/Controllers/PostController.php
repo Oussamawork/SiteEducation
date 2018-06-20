@@ -14,13 +14,14 @@ use App\Type;
 use App\Module;
 use App\User;
 use App\Professor;
+use App\Student;
 
 class PostController extends Controller
 {
     public function getview()
     {
         $id = Auth::user()->id;
-        $posts = Post::where('professor_id', $id)->get();
+        $posts = Post::where('professor_id', $id)->paginate(6);
         $user = User::where('id', $id)->first();
         $message = 'courses';
         return view('admin.listedocuments', compact('posts', 'user', 'message'));
@@ -33,12 +34,19 @@ class PostController extends Controller
         $message = 'create';
         return view('admin.createdocument', compact('studyareas', 'types', 'message'));
     }
+
     //Ajax work
     public function getModules($id)
     {
         $modules = Module::where("studyarea_id", $id)->pluck("title", "id");
         return json_encode($modules);
+    }
 
+    //Ajax work for update
+    public function getModulesUpd($id)
+    {
+        $modules = Module::where("studyarea_id", $id)->pluck("title", "id");
+        return json_encode($modules);
     }
 
     public function upload(Request $request)
@@ -109,7 +117,7 @@ class PostController extends Controller
     {   
         $post = Post::where('id', $id)->first();
         $types = Type::all();
-        $studyareas = Studyarea::all();
+        $studyareas = Studyarea::all()->pluck("title", "id");
         $modules = Module::all();
         $message = 'create';
         return view('admin.updatedocument', compact('post', 'types', 'studyareas', 'modules', 'message'));
@@ -132,7 +140,18 @@ class PostController extends Controller
 
     public function getStudyareaModls(Studyarea $studyarea)
     {  
-        return view('admin.listepostsbyStud', compact('studyarea'));
+        $users = User::all();
+        return view('admin.listepostsbyStud', compact('studyarea','users'));
     }
 
+    //USER :: 
+
+    public function getviewUser()
+    {
+        $user_id = Auth::user()->id;
+        $studyarea_id = Student::where('id',$user_id)->value('studyarea_id');
+        $studyarea = Studyarea::where('id',$studyarea_id)->pluck('id','title');
+        $modules = Module::where('studyarea_id',$studyarea_id)->pluck('id','title');
+        return view('user.index',compact('studyarea','modules'));
+    }
 }

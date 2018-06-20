@@ -4,7 +4,7 @@
 
 @section ('content')
 <!-- Courses Area Start -->
-<div class="courses-area pt-150 text-center">
+<div class="courses-area pt-15 text-center">
     <div class="container">
         <div class="row">
             <div class="col-xs-12">
@@ -85,6 +85,11 @@
                     </div>
                 @endif
             @endforeach
+        </div>
+        <div class="row">
+            <div class="col-md-12 text-center">
+                {{ $posts->links() }}
+            </div>
         </div>
     </div>
 </div>

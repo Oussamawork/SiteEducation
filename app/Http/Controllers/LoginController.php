@@ -24,7 +24,7 @@ class LoginController extends Controller
             if (filled(Professor::find($id))) {
                 return redirect()->route('admin.home');
             } else {
-                echo ('Student');
+                return redirect()->route('user.index');
             }
         }
     }

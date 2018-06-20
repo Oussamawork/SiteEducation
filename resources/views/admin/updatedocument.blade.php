@@ -54,6 +54,35 @@ Add Document
                                 <div class="row">
                                     <div class="col-md-4">
                                         <div class="form-group">
+                                            <label for="category">Studyarea</label>
+                                            <select class="form-control" name="studyarea" {{ $errors->has('studyarea') ? ' is-invalid ' : ''}}>
+                                                    <option value="">--Select Studyarea--</option>
+                                                @foreach($studyareas as $studyarea => $value)
+                                                    <option value="{{ $studyarea }}">{{ $value }}</option>
+                                                @endforeach
+                                            </select>
+                                            @if ($errors->has('studyarea'))
+                                                <span class="invalid-feedback"></span>
+                                                    <h5>{{ $errors->first('studyarea') }}</h5>
+                                                
+                                            @endif
+                                        </div>
+                                    </div>
+                                    <div class="col-md-4">
+                                        <div class="form-group">
+                                            <label for="category">Module</label>
+                                            <select class="form-control" name="module">
+                                                <option>--Select The Studyarea First--</option>
+                                            </select>
+                                            @if ($errors->has('module'))
+                                                <span class="invalid-feedback">
+                                                    <h5>{{ $errors->first('module') }}</h5>
+                                                </span>
+                                            @endif
+                                        </div>
+                                    </div>
+                                    <div class="col-md-4">
+                                        <div class="form-group">
                                             <label for="category">Type</label>
                                             <select class="form-control" name="type">   
                                                 @foreach($types as $type)
@@ -81,5 +110,9 @@ Add Document
         </div>
     </div>
 </form>
+
+{{-- AJAX --}}
+<script src="{{ asset('js/app.js') }}"></script>
+<script src="{{ asset('js/customU.js') }}"></script>
 
 @endsection

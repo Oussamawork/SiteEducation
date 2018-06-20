@@ -37,6 +37,11 @@ Route::group(['prefix' => 'admin'], function() {
         'uses' => 'PostController@getModules',
     ]);
 
+    //Ajax route for update
+    Route::get('modules/get/update/{id}', [
+        'uses' => 'PostController@getModulesUpd',
+    ]);
+
     //ansuprimiha db mora maghanhiyed doc details
     Route::get('Document-details/{id}',[
         'uses' => 'PostController@getDocDetails',
@@ -89,6 +94,14 @@ Route::group(['prefix' => 'admin'], function() {
         'as' => 'admin.addModule'
     ]);
 
+});
+
+Route::group(['prefix' => 'user'], function() {
+    
+    Route::get('index',[
+        'uses' => 'PostController@getviewUser',
+        'as' => 'user.index'
+    ]);
 });
 
 Route::post('authentification', [

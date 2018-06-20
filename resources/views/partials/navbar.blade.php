@@ -39,7 +39,7 @@
             </div>
         </div>
     </div>
-    @if(Auth::check())
+    @if(Auth::check() && Auth::user()->is_admin )
     <div class="header-area two header-sticky">
         <div class="container">
             <div class="row">

@@ -1,5 +1,6 @@
 @extends ('layouts.master') @section ('title') Page 1 @endsection @section ('content')
 <!-- Contact Start -->
+<div class="course-area pt-20 pb-20">
 <div class="container">
     <div class="row centered-form">
         <div class="col-xs-12 col-sm-12">
@@ -92,5 +93,6 @@
             </div>
         </div>
     </div>
+</div>
 </div>
 @endsection
