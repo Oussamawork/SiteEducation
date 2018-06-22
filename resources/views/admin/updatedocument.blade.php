@@ -8,8 +8,8 @@ Add Document
 
 @section('content')
 <form enctype="multipart/form-data" method="post" action="{{ route('admin.update') }}">
-    {{ csrf_field() }}
-    <div class="container">            
+    @csrf
+    <div class="container pt-50 pb-70">            
         <div class="row">
             <div class="col-md-12">
                 <div class="panel-group" id="accordion">
@@ -29,6 +29,9 @@ Add Document
                             </div>
                         @endif
                         <input value="{{ $post->id }}" name="id" hidden>
+                        {{--For ajax--}}
+                        <input value="{{ $post->module_id }}" id="module_id" hidden>
+
                         <div id="collapseOne" class="panel-collapse collapse in">
                             <div class="panel-body">
                                 <div class="row">
@@ -58,7 +61,7 @@ Add Document
                                             <select class="form-control" name="studyarea" {{ $errors->has('studyarea') ? ' is-invalid ' : ''}}>
                                                     <option value="">--Select Studyarea--</option>
                                                 @foreach($studyareas as $studyarea => $value)
-                                                    <option value="{{ $studyarea }}">{{ $value }}</option>
+                                                    <option {{ $studyarea_id == $studyarea ? 'selected' : ''}} value="{{ $studyarea }}">{{ $value }}</option>
                                                 @endforeach
                                             </select>
                                             @if ($errors->has('studyarea'))

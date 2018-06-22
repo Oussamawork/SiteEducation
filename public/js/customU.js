@@ -1,20 +1,28 @@
 $(document).ready(function() {
+    var moduleId;
+    $('input#module_id').on('change', function(){   //ila tbedlat lvalue dialha bhal ila wrkna aala chi haja f dik select aandha value bhal America
+        moduleId = $(this).val(); 
+    });
 
     $('select[name="studyarea"]').on('change', function(){   //ila tbedlat lvalue dialha bhal ila wrkna aala chi haja f dik select aandha value bhal America
         var studyareaId = $(this).val();     // kanchedo lvalue dial dik select li werekna aaliha 
         if(studyareaId) {  // kant2ekdo rah dik value kaina
             $.ajax({
-                url: 'modules/get/update/'+studyareaId,     //lien li anmchiw lih ola route 
+                url: '/admin/modules/get/update/'+studyareaId,     //lien li anmchiw lih ola route 
                 type:"GET",
                 dataType:"json",
 
                 success:function(data) {    //mora makanjibo resultat 
-
+                    
                     $('select[name="module"]').empty();   // kankhwiw module mora makataamer lmera lwla 
 
                     $.each(data, function(key, value){      //kanbdaw naamro fiha :D select d module zaama
-
-                        $('select[name="module"]').append('<option value="'+ key +'">' + value + '</option>');
+                        if (value['id'] == this.moduleId) {
+                            $('select[name="module"]').append('<option value="'+ value['id'] +'">' + value['title'] + '</option>');
+                        } else {
+                            $('select[name="module"]').append('<option  selected value="'+ value['id'] +'">' + value['title'] + '</option>');
+                        }
+                        
 
                     });
                 },
@@ -23,7 +31,7 @@ $(document).ready(function() {
         } else { // ila makantch value kankheliw select tania dial module khawiya 
             $('select[name="module"]').empty();
         }
-
     });
-
+    $('input#module_id' ).trigger( "change" );
+    $('select[name="studyarea"]' ).trigger( "change" );
 });

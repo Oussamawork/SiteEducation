@@ -9,7 +9,7 @@ Add Document
 @section('content')
 <form enctype="multipart/form-data" method="post" action="{{ route('admin.ajoutdocument') }}">
     {{ csrf_field() }}
-    <div class="container">            
+    <div class="container pb-50">            
         <div class="row">
             <div class="col-md-12">
                 <div class="panel-group" id="accordion">

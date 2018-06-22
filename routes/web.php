@@ -38,7 +38,7 @@ Route::group(['prefix' => 'admin'], function() {
     ]);
 
     //Ajax route for update
-    Route::get('modules/get/update/{id}', [
+    Route::get('/modules/get/update/{id}', [
         'uses' => 'PostController@getModulesUpd',
     ]);
 
@@ -47,6 +47,18 @@ Route::group(['prefix' => 'admin'], function() {
         'uses' => 'PostController@getDocDetails',
         'as' => 'admin.documentdetails',
         'middleware' => 'auth'
+    ]);
+
+    //Search doc prof
+    Route::get('search',[
+        'uses' => 'PostController@coursesSearch',
+        'as' => 'admin.search'
+    ]);
+
+    //Search posts by studyarea
+    Route::get('search',[
+        'uses' => 'PostController@coursesSearchS',
+        'as' => 'admin.searchS'
     ]);
 
     Route::get('display/{id}', [

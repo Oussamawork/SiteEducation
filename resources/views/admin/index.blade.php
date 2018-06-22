@@ -6,7 +6,7 @@
 
 @section ('content')
 <!-- Courses Area Start -->
-<div class="courses-area pt-30 text-center">
+<div class="courses-area pt-30 pb-150 text-center">
     <div class="container">
         <div class="row">
             <div class="col-xs-12">

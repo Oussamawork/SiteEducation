@@ -19,7 +19,9 @@
                                     </li>
                                 @endif
                                 @if(Auth::check())
-                                <li> <a href="{{ route('admin.addStudy') }}" >Add Studyarea / Module</a> </li>    
+                                    @if(Auth::user()->is_admin)
+                                        <li> <a href="{{ route('admin.addStudy') }}" >Add Studyarea / Module</a> </li>    
+                                    @endif
                                     <li>
                                             <a class="dropdown-item" href="{{ route('logout') }}"
                                                                 onclick="event.preventDefault();

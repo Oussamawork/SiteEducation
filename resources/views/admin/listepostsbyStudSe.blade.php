@@ -36,16 +36,15 @@ Page 1
                             </div>
                     </div>   
             </div>
-    @foreach($studyarea->modules as $module)
         <div class="row">
             <div class="col-md-8">
                 <div class="course-title">
-                    <h3>{{ $module->title }}</h3> 
+                    <h3> {{ $post->module->title }} </h3> 
                 </div>
             </div>
         </div>
+
         <div class="row">
-            @foreach($module->posts as $post)    
                 <div class="col-md-4 col-sm-6 col-xs-12">
                         <div class="single-course mb-25">
                             <div class="course-content mb-3">
@@ -66,10 +65,10 @@ Page 1
                             </div>
                         </div>
                     </div>
-            @endforeach
+            
 
         </div>
-    @endforeach
+        
 </div> 
 </div>       
 <!-- Course End -->

@@ -11,7 +11,6 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
 
     <link rel="apple-touch-icon" href="apple-touch-icon.png">
-    <!-- Place favicon.ico in the root directory -->
 
     <link rel="stylesheet" href="{{ asset('css/bootstrap.min.css') }}">
     <link rel="stylesheet" href="{{ asset('css/animate.css') }}">
@@ -25,19 +24,19 @@
     <link rel="stylesheet" href="{{ asset('css/material-design-iconic-font.min.css') }}">
     <link rel="stylesheet" href="{{ asset('css/style.css') }}">
     <link rel="stylesheet" href="{{ asset('css/responsive.css') }}">
-    <script src="js/vendor/modernizr-2.8.3.min.js"></script>
+    <script src="{{asset('js/vendor/modernizr-2.8.3.min.js')}}"></script>
     {{--Register--}}
-    <link href="//netdna.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
+    <link href="{{asset('//netdna.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css')}}" rel="stylesheet" id="bootstrap-css">
     {{-- Freelance--}}
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
 
-    <script src="//netdna.bootstrapcdn.com/bootstrap/3.2.0/js/bootstrap.min.js"></script>
-    <script src="//code.jquery.com/jquery-1.11.1.min.js"></script>
+    <script src="{{asset('//netdna.bootstrapcdn.com/bootstrap/3.2.0/js/bootstrap.min.js')}}"></script>
+    <script src="{{asset('//code.jquery.com/jquery-1.11.1.min.js')}}"></script>
     {{-- end --}}
     {{-- Create Doc --}}
-    <link href="//netdna.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
-    <script src="//netdna.bootstrapcdn.com/bootstrap/3.2.0/js/bootstrap.min.js"></script>
-    <script src="//code.jquery.com/jquery-1.11.1.min.js"></script>
+    <link href="{{asset('//netdna.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css')}}" rel="stylesheet" id="bootstrap-css">
+    <script src="{{asset('//netdna.bootstrapcdn.com/bootstrap/3.2.0/js/bootstrap.min.js')}}"></script>
+    <script src="{{asset('//code.jquery.com/jquery-1.11.1.min.js')}}"></script>
     {{-- end --}}
 
 {{--     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.0/css/bootstrap.min.css" integrity="sha384-9gVQ4dYFwwWSjIDZnLEWnxCjeSWFphJiwGPXr1jddIhOegiu1FwO5qRGvFXOdJZ4" crossorigin="anonymous">
@@ -51,16 +50,16 @@
     
     @include ('partials.footer')
 
-    <script src="js/vendor/jquery-1.12.0.min.js"></script>
-    <script src="js/bootstrap.min.js"></script>
-    <script src="js/jquery.meanmenu.js"></script>
-    <script src="js/jquery.magnific-popup.js"></script>
-    <script src="js/ajax-mail.js"></script>
-    <script src="js/owl.carousel.min.js"></script>
-    <script src="js/jquery.mb.YTPlayer.js"></script>
-    <script src="js/jquery.nicescroll.min.js"></script>
-    <script src="js/plugins.js"></script>
-    <script src="js/main.js"></script>
+    <script src="{{ asset('js/vendor/jquery-1.12.0.min.js')}}"></script>
+    <script src="{{ asset('js/bootstrap.min.js')}}"></script>
+    <script src="{{ asset('js/jquery.meanmenu.js')}}"></script>
+    <script src="{{ asset('js/jquery.magnific-popup.js')}}"></script>
+    <script src="{{ asset('js/ajax-mail.js')}}"></script>
+    <script src="{{ asset('js/owl.carousel.min.js')}}"></script>
+    <script src="{{ asset('js/jquery.mb.YTPlayer.js')}}"></script>
+    <script src="{{ asset('js/jquery.nicescroll.min.js')}}"></script>
+    <script src="{{ asset('js/plugins.js')}}"></script>
+    <script src="{{ asset('js/main.js')}}"></script>
     
 
    {{--  <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>

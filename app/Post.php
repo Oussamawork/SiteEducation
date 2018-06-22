@@ -21,4 +21,21 @@ class Post extends Model
     {
         return $this->belongsTo('App\Module');
     }
+
+    public function scopeSearchByKeyword($query, $search)
+    {
+        if (filled($search)) {
+            $keywords = explode(' ', $search);
+            $query->where(function ($query) use ($keywords) {
+                $query->where('title', 'LIKE', '%' . array_shift($keywords) . '%');
+            });
+
+            foreach ($keywords as $keyword) {
+                $query->orWhere(function ($query) use ($keyword) {
+                    $query->orWhere('title', 'LIKE', "%$keyword%");
+                });
+            }
+        }
+        return $query;
+    }
 }
