@@ -39,7 +39,7 @@ Page 1
         <div class="row">
             <div class="col-md-8">
                 <div class="course-title">
-                    <h3> {{ $post->module->title }} </h3> 
+                    <h3>  </h3> 
                 </div>
             </div>
         </div>
@@ -49,9 +49,9 @@ Page 1
                         <div class="single-course mb-25">
                             <div class="course-content mb-3">
                                 <h3 class="text-center text-primary">
-                                    <a href="#"> {{ $post->title }} </a>
+                                    <a href="#"> {{-- {{ $post->title }} --}} </a>
                                 </h3>
-                                <h3>
+                                <{{-- h3>
                                     <p class="text-primary"> {{ $post->description }} </p>
                                 </h3>
                                 @php 
@@ -60,7 +60,7 @@ Page 1
                                 @endphp
                                 <p>By {{ $user->first_name }} {{$user->last_name}} / {{$post->updated_at->diffForHumans()}}</p>
                                 <a class="default-btn btn-primary btn-lg" href=" {{ route('display',$post->id) }} ">See it</a>
-                                <a class="default-btn btn-danger btn-lg" href=" {{ route('download',$post->id) }} ">Download</a>
+                                <a class="default-btn btn-danger btn-lg" href=" {{ route('download',$post->id) }} ">Download</a> --}}
 
                             </div>
                         </div>

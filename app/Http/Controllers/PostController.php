@@ -171,8 +171,9 @@ class PostController extends Controller
         $user_id = Auth::user()->id;
         $studyarea_id = Student::where('id',$user_id)->value('studyarea_id');
         $studyarea = Studyarea::where('id',$studyarea_id)->pluck('id','title');
+        $modules = Module::where('studyarea_id',$studyarea_id)->get();
         $users = User::all();
         $posts = Post::latest()->get();
-        return view('user.index',compact('studyarea','users','posts'));
+        return view('user.index',compact('studyarea','modules','users','posts'));
     }
 }
