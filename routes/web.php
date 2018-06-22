@@ -56,7 +56,7 @@ Route::group(['prefix' => 'admin'], function() {
     ]);
 
     //Search posts by studyarea
-    Route::get('search',[
+    Route::get('searchS',[
         'uses' => 'PostController@coursesSearchS',
         'as' => 'admin.searchS'
     ]);

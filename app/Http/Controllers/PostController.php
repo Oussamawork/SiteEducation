@@ -164,6 +164,8 @@ class PostController extends Controller
         return view('admin.listepostsbyStudSe', compact('posts','users','studyarea'));
     }
 
+
+    
     //USER :: 
 
     public function getviewUser()

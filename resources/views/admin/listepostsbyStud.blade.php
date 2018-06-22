@@ -37,7 +37,7 @@ Page 1
                     </div>   
             </div>
     @foreach($studyarea->modules as $module)
-        <div class="row">
+        <div class="row pb-10">
             <div class="col-md-8">
                 <div class="course-title">
                     <h3>{{ $module->title }}</h3> 
@@ -48,6 +48,19 @@ Page 1
             @foreach($module->posts as $post)    
                 <div class="col-md-4 col-sm-6 col-xs-12">
                         <div class="single-course mb-25">
+                            @if( $post->type_id === 1)
+                                <div class="event-date" style="position: absolute;left: 27px;top: -11px;width: 83px;height: 40px;background: rgba(0, 102, 255, 0.62);">
+                                    <h3 style="color: #fefefe;font-size: 20px;line-height: 2px;padding: 0px 15px 11px;text-align: center;">Cours </h3>
+                            @endif  
+                            @if( $post->type_id === 2)
+                                <div class="event-date" style="position: absolute;left: 27px;top: -11px;width: 83px;height: 40px;background: rgba(15, 136, 13, 0.62);">
+                                    <h3 style="color: #fefefe;font-size: 20px;line-height: 2px;padding: 0px 15px 11px;text-align: center;">TD </h3>
+                            @endif  
+                            @if( $post->type_id === 3)
+                                <div class="event-date" style="position: absolute;left: 27px;top: -11px;width: 83px;height: 40px;background: rgba(181, 15, 15, 0.62);">
+                                    <h3 style="color: #fefefe;font-size: 20px;line-height: 2px;padding: 0px 15px 11px;text-align: center;">Note </h3>
+                            @endif  
+                            </div>
                             <div class="course-content mb-3">
                                 <h3 class="text-center text-primary">
                                     <a href="#"> {{ $post->title }} </a>

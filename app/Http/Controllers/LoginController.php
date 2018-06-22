@@ -26,6 +26,8 @@ class LoginController extends Controller
             } else {
                 return redirect()->route('user.index');
             }
+        } else {
+            return back()->with('info','email or password incorrect');
         }
     }
 }

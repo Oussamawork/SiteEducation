@@ -34,11 +34,21 @@
         </div>
         <div class="row">
             @foreach($posts as $post) 
-                @if( $post->type_id === 1)
+                
                     <div class="col-md-4 col-sm-6 col-xs-12">
                         <div class="single-course mb-25">
-                            <div class="event-date" style="position: absolute;left: 0; top: 30px; width: 70px; height: 85px; background: rgba(44, 43, 94, 0.79);">
-                                    <h3>Cours </h3>  
+                            @if( $post->type_id === 1)
+                                <div class="event-date" style="position: absolute;left: 27px;top: -11px;width: 83px;height: 40px;background: rgba(0, 102, 255, 0.62);">
+                                    <h3 style="color: #fefefe;font-size: 20px;line-height: 2px;padding: 0px 15px 11px;text-align: center;">Cours </h3>
+                            @endif  
+                            @if( $post->type_id === 2)
+                                <div class="event-date" style="position: absolute;left: 27px;top: -11px;width: 83px;height: 40px;background: rgba(15, 136, 13, 0.62);">
+                                    <h3 style="color: #fefefe;font-size: 20px;line-height: 2px;padding: 0px 15px 11px;text-align: center;">TD </h3>
+                            @endif  
+                            @if( $post->type_id === 3)
+                                <div class="event-date" style="position: absolute;left: 27px;top: -11px;width: 83px;height: 40px;background: rgba(181, 15, 15, 0.62);">
+                                    <h3 style="color: #fefefe;font-size: 20px;line-height: 2px;padding: 0px 15px 11px;text-align: center;">Note </h3>
+                            @endif  
                             </div>
                             <div class="course-content mb-3" style="min-height: 330px;">
                                 <h3 class="text-center text-primary">
@@ -59,54 +69,7 @@
                             </div>
                         </div>
                     </div>
-                @endif
-                @if( $post->type_id === 2)
-                    <div class="col-md-4 col-sm-6 col-xs-12">
-                        <div class="single-course mb-25">
-                            <div class="course-content mb-3" style="min-height: 330px;">
-                                <h3 class="text-center text-primary">
-                                    <a href=" Document-details/{{ $post->id }} "> {{ $post->title }} </a>
-                                </h3>
-                            <div class="{{strlen($post->title) > 20 ? 'pt-10 pb-9' : 'pt-15 pb-20'}}">
-                                    <h3>
-                                        <p class="text-primary"> {{ $post->description }} </p>
-                                    </h3>
-                                    <p>By {{$user->first_name}} {{$user->last_name}} / {{$post->updated_at->diffForHumans()}}</p>
-                                </div>
-                                <div class="pt-0">
-                                    <a class="default-btn btn-primary btn-lg" href=" {{ route('display',$post->id) }} ">See it</a>
-                                    <a class="default-btn btn-success btn-lg" href=" {{ route('download',$post->id) }} ">Download</a>
-                                    <a class="default-btn btn-warning btn-lg" href="{{ route('update',$post->id) }}">Modify </a>
-                                    <a class="default-btn btn-danger btn-lg" href=" {{ route('delete',$post->id) }} ">Delete</a>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                @endif
-                @if( $post->type_id === 3)
-                    <div class="col-md-4 col-sm-6 col-xs-12">
-                        <div class="single-course mb-25">
-                            <div class="course-content mb-3" style="min-height: 330px;">
-                                <h3 class="text-center text-primary">
-                                    <a href=" Document-details/{{ $post->id }} "> {{ $post->title }} </a>
-                                </h3>
-                            <div class="{{strlen($post->title) > 20 ? 'pt-10 pb-9' : 'pt-15 pb-20'}}">
-                                    <h3>
-                                        <p class="text-primary"> {{ $post->description }} </p>
-                                    </h3>
-                                    <p>By {{$user->first_name}} {{$user->last_name}} / {{$post->updated_at->diffForHumans()}}</p>
-                                </div>
-                                <div class="pt-0">
-                                    <a class="default-btn btn-primary btn-lg" href=" {{ route('display',$post->id) }} ">See it</a>
-                                    <a class="default-btn btn-success btn-lg" href=" {{ route('download',$post->id) }} ">Download</a>
-                                    <a class="default-btn btn-warning btn-lg" href="{{ route('update',$post->id) }}">Modify </a>
-                                    <a class="default-btn btn-danger btn-lg" href=" {{ route('delete',$post->id) }} ">Delete</a>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                @endif
-   
+                
             @endforeach
         </div>
         <div class="row">
