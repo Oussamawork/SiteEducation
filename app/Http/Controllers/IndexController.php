@@ -14,4 +14,5 @@ class IndexController extends Controller
         }
         return view('partials.page_403');
     }
+
 }

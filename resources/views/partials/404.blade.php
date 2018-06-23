@@ -7,12 +7,12 @@
                 <div class="container-floud">
                     <div class="col-xs-12 ground-color text-center">
                         <div class="container-error-404">
-                            <div class="clip"><div class="shadow"><span class="digit thirdDigit"></span></div></div>
-                            <div class="clip"><div class="shadow"><span class="digit secondDigit"></span></div></div>
-                            <div class="clip"><div class="shadow"><span class="digit firstDigit"></span></div></div>
-                            <div class="msg">OH!<span class="triangle"></span></div>
+                            <div class="clip"><div class="shadow"><span class="digit thirdDigit" style="background: #f90707;"/span></div></div>
+                            <div class="clip"><div class="shadow"><span class="digit secondDigit" style="background: #2c2b5e;" ></span></div></div>
+                            <div class="clip"><div class="shadow"><span class="digit firstDigit" style="background: #f90707;"></span></div></div>
+                            <div class="msg" style="background: #2c2b5e;     color: #FFF;">OH!<span class="triangle" style="border-left: 20px solid #2c2b5e;"></span></div>
                         </div>
-                        <h2 class="h1">Sorry! Page not found</h2>
+                        <h2 class="h1" style="color: #2c2b5e;">Sorry! Page not found</h2>
                     </div>
                 </div>
             </div>

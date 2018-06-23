@@ -1,14 +1,14 @@
 <title>No access</title>
-<body>
-  <section id="not-found">
+<body style="background: #f90707;">
+  <section id="not-found" style="    background: #f90707;">
     <div id="title">Vous n'avez pas l'accès à cette page</div>
     <div class="circles">
       <p>403<br>
        <small>PAGE NOT FOUND</small>
       </p>
-      <span class="circle big"></span>
-      <span class="circle med"></span>
-      <span class="circle small"></span>
+      <span class="circle big" style="background: #2c2b5e;"></span>
+      <span class="circle med" style="background: #2c2b5e;"></span>
+      <span class="circle small" style="background: #2c2b5e;"></span>
     </div>
   </section>
  </body>
