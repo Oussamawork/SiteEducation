@@ -5,7 +5,7 @@
 @endsection
 
 @section('content')
-<div class="container">
+{{-- <div class="container">
     <div class="row justify-content-center">
         <div class="col-md-8">
             <div class="card">
@@ -113,11 +113,11 @@
             </div>
         </div>
     </div>
-</div>
+</div> --}}
 
 
-{{-- <div class="container-fluid">
-        <section class="container">
+<div class="container-fluid">
+        <section class="container pt-150 pb-150">
              <form method="POST" action="{{ route('edit') }}">
                     @csrf
                 <div class="container-page">				
@@ -186,12 +186,12 @@
                             <input id="password-confirm" type="password" class="form-control" name="password_confirmation" required>
                         </div>					
                     {{-- Sending identification --}}
-                    {{-- <input id="identification" type="text" name="identification" value={{ $identification }} hidden> --}}
+                    <input id="identification" type="text" name="identification" value={{ $identification }} hidden>
 
                     {{-- is_admin or not --}}
-{{--                      <input id="is_admin" type="text" name="is_admin" value="{{ $is_admin ?? null }}" hidden>
- --}}                     
-                   {{--  </div>
+                     <input id="is_admin" type="text" name="is_admin" value="{{ $is_admin ?? null }}" hidden>
+                     
+                  </div>
                     
                     
                     <div class="col-md-6">
@@ -215,7 +215,7 @@
                 </div>
              </form>
         </section>
-    </div> --}}
+    </div>
 
 
     @endsection

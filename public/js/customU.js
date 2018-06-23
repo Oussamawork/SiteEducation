@@ -1,11 +1,12 @@
 $(document).ready(function() {
     var moduleId;
-    $('input#module_id').on('change', function(){   //ila tbedlat lvalue dialha bhal ila wrkna aala chi haja f dik select aandha value bhal America
+    /* $('input#module_id').on('change', function(){   //ila tbedlat lvalue dialha bhal ila wrkna aala chi haja f dik select aandha value bhal America
         moduleId = $(this).val(); 
-    });
+       }); */
 
     $('select[name="studyarea"]').on('change', function(){   //ila tbedlat lvalue dialha bhal ila wrkna aala chi haja f dik select aandha value bhal America
         var studyareaId = $(this).val();     // kanchedo lvalue dial dik select li werekna aaliha 
+        console.log(moduleId);
         if(studyareaId) {  // kant2ekdo rah dik value kaina
             $.ajax({
                 url: '/admin/modules/get/update/'+studyareaId,     //lien li anmchiw lih ola route 
@@ -17,13 +18,7 @@ $(document).ready(function() {
                     $('select[name="module"]').empty();   // kankhwiw module mora makataamer lmera lwla 
 
                     $.each(data, function(key, value){      //kanbdaw naamro fiha :D select d module zaama
-                        if (value['id'] == this.moduleId) {
-                            $('select[name="module"]').append('<option value="'+ value['id'] +'">' + value['title'] + '</option>');
-                        } else {
-                            $('select[name="module"]').append('<option  selected value="'+ value['id'] +'">' + value['title'] + '</option>');
-                        }
-                        
-
+                        $('select[name="module"]').append('<option  selected value="'+ value['id'] +'">' + value['title'] + '</option>');
                     });
                 },
 
@@ -32,6 +27,6 @@ $(document).ready(function() {
             $('select[name="module"]').empty();
         }
     });
-    $('input#module_id' ).trigger( "change" );
-    $('select[name="studyarea"]' ).trigger( "change" );
+    /* $('input#module_id' ).trigger( "change" );*/
+    /* $('select[name="studyarea"]' ).trigger( "change" ); */
 });

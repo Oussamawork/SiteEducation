@@ -4,6 +4,10 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Module;
+use Auth;
+use App\Student;
+use App\User;
+use App\Studyarea;
 
 class ModuleController extends Controller
 {
@@ -19,5 +23,15 @@ class ModuleController extends Controller
         $module->studyarea_id = $request['studyarea'];
         $module->save();
         return back()->with('infoM','Success');
-    } 
+    }
+
+    public function getUserModules()
+    {
+        $user_id = Auth::user()->id;
+        $studyarea_id = Student::where('id',$user_id)->value('studyarea_id');
+        $studyarea = Studyarea::where('id',$studyarea_id)->first();
+        $modules = Module::where('studyarea_id',$studyarea_id)->get();
+        $users = User::all();
+        return view('user.listeModules',compact('studyarea','modules','users'));
+    }
 }

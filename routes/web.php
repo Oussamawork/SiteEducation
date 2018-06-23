@@ -10,16 +10,19 @@
 | contains the "web" middleware group. Now create something great!
 |
 */
-Route::get('admin/home', function () {
-    return view('admin.index', ['message' => 'Home']);
-})->name('admin.home');
 
 Route::group(['prefix' => 'admin'], function() {
 
+    Route::get('home',[
+        'uses' => 'IndexController@getview',
+        'as' => 'admin.home',
+        'middleware' => 'auth'
+    ]);
     Route::get('Liste-Documents',[
         'uses' => 'PostController@getview',
-        'as' => 'admin.listedocuments'
-    ]);
+        'as' => 'admin.listedocuments',
+        'middleware' => 'auth'
+        ]);
 
     Route::get('Ajout-Document',[
         'uses' => 'PostController@getCreatePost',
@@ -29,17 +32,20 @@ Route::group(['prefix' => 'admin'], function() {
 
     Route::post('Ajout-Document',[
         'uses' => 'PostController@upload',
-        'as' => 'admin.ajoutdocument'
+        'as' => 'admin.ajoutdocument',
+        'middleware' => 'auth'
     ]);
     
     //Ajax route
     Route::get('modules/get/{id}', [
         'uses' => 'PostController@getModules',
+        'middleware' => 'auth'
     ]);
 
     //Ajax route for update
     Route::get('/modules/get/update/{id}', [
         'uses' => 'PostController@getModulesUpd',
+        'middleware' => 'auth'
     ]);
 
     //ansuprimiha db mora maghanhiyed doc details
@@ -52,68 +58,93 @@ Route::group(['prefix' => 'admin'], function() {
     //Search doc prof
     Route::get('search',[
         'uses' => 'PostController@coursesSearch',
-        'as' => 'admin.search'
+        'as' => 'admin.search',
+        'middleware' => 'auth'
     ]);
 
     //Search posts by studyarea
     Route::get('searchS',[
         'uses' => 'PostController@coursesSearchS',
-        'as' => 'admin.searchS'
+        'as' => 'admin.searchS',
+        'middleware' => 'auth'
     ]);
 
     Route::get('display/{id}', [
         'uses' => 'PostController@getPDF',
-        'as' => 'display'
+        'as' => 'display',
+        'middleware' => 'auth'
     ]);
 
     Route::get('download/{id}', [
         'uses' => 'PostController@DownloadPDF',
-        'as' => 'download'
+        'as' => 'download',
+        'middleware' => 'auth'
     ]);
 
     Route::get('delete/{id}', [
         'uses' => 'PostController@DeletePost',
-        'as' => 'delete'
+        'as' => 'delete',
+        'middleware' => 'auth'
     ]);
     
     Route::get('update/{id}', [
         'uses' => 'PostController@UpdatePostview',
-        'as' => 'update'
+        'as' => 'update',
+        'middleware' => 'auth'
     ]);
 
     Route::post('update', [
         'uses' => 'PostController@UpdatePost',
-        'as' => 'admin.update'
+        'as' => 'admin.update',
+        'middleware' => 'auth'
     ]);
 
     Route::get('studyarea/{studyarea}', [
         'uses' => 'PostController@getStudyareaModls',
-        'as' => 'studyarea'
+        'as' => 'studyarea',
+        'middleware' => 'auth'
     ]);
 
     Route::get('studyarea', [
         'uses' => 'StudyareaController@viewaddStudyarea',
-        'as' => 'admin.addStudy'
+        'as' => 'admin.addStudy',
+        'middleware' => 'auth'
     ]);
 
     Route::post('studyarea', [
         'uses' => 'StudyareaController@addStudyarea',
-        'as' => 'admin.addStudy'
+        'as' => 'admin.addStudy',
+        'middleware' => 'auth'
     ]);
 
     Route::post('module', [
         'uses' => 'ModuleController@addModule',
-        'as' => 'admin.addModule'
+        'as' => 'admin.addModule',
+        'middleware' => 'auth'
     ]);
 
 });
 
+//USER :: 
+
 Route::group(['prefix' => 'user'], function() {
     
-    Route::get('index',[
+    Route::get('index/{id}',[
         'uses' => 'PostController@getviewUser',
         'as' => 'user.index'
     ]);
+
+    Route::get('modules',[
+        'uses' => 'ModuleController@getUserModules',
+        'as' => 'user.modules'
+    ]);
+
+    //Search doc prof
+    Route::get('search',[
+        'uses' => 'PostController@coursesSearchUser',
+        'as' => 'user.search'
+    ]);
+
 });
 
 Route::post('authentification', [

@@ -75,7 +75,9 @@ Add Document
                                         <div class="form-group">
                                             <label for="category">Module</label>
                                             <select class="form-control" name="module">
-                                                <option>--Select The Studyarea First--</option>
+                                                @foreach($modules as $module)
+                                                    <option {{ $post->module_id == $module->id ? 'selected' : ''}} value="{{ $module->id }}">{{ $module->title }}</option>
+                                                @endforeach
                                             </select>
                                             @if ($errors->has('module'))
                                                 <span class="invalid-feedback">

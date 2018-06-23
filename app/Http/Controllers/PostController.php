@@ -119,9 +119,8 @@ class PostController extends Controller
         $studyarea_id = Module::where('id',$post->module_id)->value('studyarea_id');
         $types = Type::all();
         $studyareas = Studyarea::all()->pluck("title", "id");
-        $modules = Module::all();
-        $message = 'create';
-        return view('admin.updatedocument', compact('post', 'types', 'studyareas', 'modules', 'message','studyarea_id'));
+        $modules = Module::where('studyarea_id',$studyarea_id)->get();
+        return view('admin.updatedocument', compact('post', 'types', 'studyareas', 'modules','studyarea_id'));
     }
 
     public function UpdatePost(Request $request)
@@ -130,10 +129,13 @@ class PostController extends Controller
             'title' => 'required',
             'description' => 'required',
             'type' => 'required',
+            'studyarea' => 'required', 
+            'module' => 'required'
         ]);
-        $post = Post::where('id', $request['id'])->first();
+       $post = Post::where('id', $request['id'])->first();
         $post->title = $request['title'];
         $post->description = $request['description'];
+        $post->module_id = $request['module'];
         $post->type_id = $request['type'];
         $post->save();
         return redirect()->route('admin.listedocuments');
@@ -149,7 +151,7 @@ class PostController extends Controller
     public function coursesSearch(Request $request)
     {
         $id = Auth::user()->id;
-        $posts = Post::searchByKeyword($request['search'])->latest()->paginate(6);
+        $posts = Post::searchByKeyword($request['search'])->latest()->paginate(12);
         $user = User::where('id', $id)->first();
         return view('admin.listedocuments', compact('posts','user'));
     }
@@ -163,19 +165,28 @@ class PostController extends Controller
         $users = User::all();
         return view('admin.listepostsbyStudSe', compact('posts','users','studyarea'));
     }
-
-
     
     //USER :: 
-
-    public function getviewUser()
+    public function getviewUser($id)
     {
         $user_id = Auth::user()->id;
         $studyarea_id = Student::where('id',$user_id)->value('studyarea_id');
-        $studyarea = Studyarea::where('id',$studyarea_id)->pluck('id','title');
-        $modules = Module::where('studyarea_id',$studyarea_id)->get();
+        $studyarea = Studyarea::where('id',$studyarea_id)->value('title');
+        $module = Module::where('id',$id)->first();
         $users = User::all();
-        $posts = Post::latest()->get();
-        return view('user.index',compact('studyarea','modules','users','posts'));
+        $posts = Post::where('module_id',$id)->latest()->paginate(6);
+        return view('user.index',compact('studyarea','module','users','posts'));
     }
+
+    //Search
+    public function coursesSearchUser(Request $request)
+    {
+        $id = Auth::user()->id;
+        $posts = Post::searchByKeyword($request['search'])->latest()->paginate(12);
+        $users = User::all();
+        $module_id = $request['module'];
+        $module = Module::where('id',$module_id)->first();
+        return view('user.index', compact('posts','users','module'))->with('module',$module);
+    }
+
 }

@@ -24,7 +24,7 @@ class LoginController extends Controller
             if (filled(Professor::find($id))) {
                 return redirect()->route('admin.home');
             } else {
-                return redirect()->route('user.index');
+                return redirect()->route('user.modules');
             }
         } else {
             return back()->with('info','email or password incorrect');

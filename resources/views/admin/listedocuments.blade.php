@@ -40,21 +40,24 @@
                             @if( $post->type_id === 1)
                                 <div class="event-date" style="position: absolute;left: 27px;top: -11px;width: 83px;height: 40px;background: rgba(0, 102, 255, 0.62);">
                                     <h3 style="color: #fefefe;font-size: 20px;line-height: 2px;padding: 0px 15px 11px;text-align: center;">Cours </h3>
+                                </div>
                             @endif  
                             @if( $post->type_id === 2)
                                 <div class="event-date" style="position: absolute;left: 27px;top: -11px;width: 83px;height: 40px;background: rgba(15, 136, 13, 0.62);">
                                     <h3 style="color: #fefefe;font-size: 20px;line-height: 2px;padding: 0px 15px 11px;text-align: center;">TD </h3>
+                                </div>
                             @endif  
                             @if( $post->type_id === 3)
                                 <div class="event-date" style="position: absolute;left: 27px;top: -11px;width: 83px;height: 40px;background: rgba(181, 15, 15, 0.62);">
                                     <h3 style="color: #fefefe;font-size: 20px;line-height: 2px;padding: 0px 15px 11px;text-align: center;">Note </h3>
+                                </div>
                             @endif  
-                            </div>
+                            
                             <div class="course-content mb-3" style="min-height: 330px;">
                                 <h3 class="text-center text-primary">
-                                    <a href=" Document-details/{{ $post->id }} "> {{ $post->title }} </a>
+                                    <a href="#"> {{ $post->title }} </a>
                                 </h3>
-                            <div class="{{strlen($post->title) > 20 ? 'pt-10 pb-9' : 'pt-15 pb-20'}}">
+                                <div class="{{strlen($post->title) > 20 ? 'pt-10 pb-9' : 'pt-15 pb-20'}}">
                                     <h3>
                                         <p class="text-primary"> {{ $post->description }} </p>
                                     </h3>

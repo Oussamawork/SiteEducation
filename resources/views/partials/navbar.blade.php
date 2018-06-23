@@ -19,9 +19,6 @@
                                     </li>
                                 @endif
                                 @if(Auth::check())
-                                    @if(Auth::user()->is_admin)
-                                        <li> <a href="{{ route('admin.addStudy') }}" >Add Studyarea / Module</a> </li>    
-                                    @endif
                                     <li>
                                             <a class="dropdown-item" href="{{ route('logout') }}"
                                                                 onclick="event.preventDefault();
@@ -41,7 +38,7 @@
             </div>
         </div>
     </div>
-    @if(Auth::check() && Auth::user()->is_admin )
+@if(Auth::check() && Auth::user()->is_admin )
     <div class="header-area two header-sticky">
         <div class="container">
             <div class="row">
@@ -65,6 +62,36 @@
                                         </ul>
                                     </li>
                                     
+                                </ul>
+                            </nav>
+                        </div>
+                        <!-- Main Menu End -->
+                        
+                    </div>
+                </div>
+                <div class="col-xs-12">
+                    <div class="mobile-menu hidden-lg hidden-md hidden-sm"></div> 
+                </div>
+            </div>
+        </div>
+    </div>
+@endif
+@if(Auth::check() && !Auth::user()->is_admin )
+    <div class="header-area two header-sticky">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-3 col-sm-3 col-xs-6">
+                    <div class="logo">
+                        <a href="{{route('admin.home')}}"><img src="{{ asset('img/logo/logo2.png') }}" alt="eduhome" /></a>
+                    </div>
+                </div>
+                <div class="col-md-9 col-sm-9 col-xs-6">
+                    <div class="content-wrapper text-right">
+                        <!-- Main Menu Start -->
+                        <div class="main-menu">
+                            <nav>
+                                <ul>
+                                    <li><a href="{{route('user.modules')}}">Home</a></li>
                                 </ul>
                             </nav>
                         </div>
