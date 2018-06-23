@@ -19,10 +19,6 @@ class IdentificationController extends Controller
         $this->validate($request, [
             'identification' => 'required|numeric|digits:10'
         ]);
-        //  dd (filled(User::where('identification',$request['identification'])->get()));
-        
-
-
         if (filled(User::where('identification', $request['identification'])->first())) {
             if (!filled(User::where('identification', $request['identification'])->value('email'))) {
                 $studyareas = Studyarea::all();

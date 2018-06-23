@@ -18,9 +18,6 @@ class AllwaysRedirect
         if ($request->path() == '/') {
             return redirect('/login');
         }
-        if ($request->path() == 'admin') {
-            return redirect('/login');
-        }
         return $next($request);
     }
 }

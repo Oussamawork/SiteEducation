@@ -156,6 +156,7 @@ Route::post('authentification', [
 Route::get('identification', [
     'uses' => 'IdentificationController@getview',
     'as' => 'identification',
+    'middleware' => 'guest'
 ]);
 
 Route::post('edit', [
