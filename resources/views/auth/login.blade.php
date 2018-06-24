@@ -6,7 +6,8 @@
 
 @section('content')
 <!-- Login start -->
-<div class="login-area pt-150 pb-150">
+
+<div class="login-area pt-90 pb-30">
     <div class="container">
         <div class="row">
             <div class="col-md-6 col-md-offset-3 text-center">
@@ -20,6 +21,13 @@
                             </div>
                         @endif
                         <div class="login-text">
+                            <div class="row">
+                                <div class="col-md-12">
+                                    <div class="section-title text-center">
+                                        <img src="{{asset('img/icon/section.png')}}" alt="section-title">
+                                    </div>
+                                </div>
+                            </div>
                             <h2>login</h2>
                             <span>Please login using account detail bellow.</span>
                         </div>
