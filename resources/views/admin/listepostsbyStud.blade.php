@@ -2,7 +2,7 @@
 
 @section ('title') 
 
-Page 1 
+Filière
 
 @endsection 
 

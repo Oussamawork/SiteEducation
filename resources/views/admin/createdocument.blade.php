@@ -2,7 +2,7 @@
 
 @section ('title') 
 
-Add Document
+Ajout Document
 
 @endsection 
 
@@ -18,7 +18,7 @@ Add Document
                             <h4 class="panel-title text-center">
                                 <a data-toggle="collapse" data-parent="#accordion" href="#collapseOne">
                                     <span class="glyphicon glyphicon-file">
-                                    </span>POST NEW ARTICLE</a>
+                                    </span>POST NEW DOCUMENT</a>
                             </h4>
                         </div>
                         @if(Session::has('info'))

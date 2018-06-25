@@ -1,6 +1,6 @@
 @extends ('layouts.master') 
 
-@section ('title') Page 1 @endsection 
+@section ('title') Liste Document @endsection 
 
 @section ('content')
 <!-- Courses Area Start -->

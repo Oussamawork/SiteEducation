@@ -1,4 +1,4 @@
-@extends ('layouts.master') @section ('title') Page 1 @endsection @section ('content')
+@extends ('layouts.master') @section ('title') Ajout Filière @endsection @section ('content')
 <!-- Contact Start -->
 <div class="course-area pt-20 pb-20">
 <div class="container">
