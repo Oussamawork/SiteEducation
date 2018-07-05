@@ -20,20 +20,22 @@ Filière
             </div>
             <div class="row">
                     <div class="col-md-10 col-md-offset-1" style="margin-left: 13.333333%;">
-                            <div class="blog-sidebar left">
-                                <div class="single-blog-widget mb-50">
-                                    <h3>search</h3>
-                                    <div class="blog-search">
-                                        <form id="search" action="{{ route('admin.searchS') }}" method="get">
-                                            <input type="search" placeholder="Search..." name="search" />
-                                            <button type="submit">
-                                                <span><i class="fa fa-search"></i></span>
-                                            </button>
-                                        <input value="{{ $studyarea->id }}" name="studyarea" hidden>
-                                        </form>
-                                    </div>
-                                </div>     
-                            </div>
+                        <div class="blog-sidebar left">
+                            <div class="single-blog-widget mb-50">
+                                <div class="course-title">
+                                    <h3 style="color: #fff">Chercher une course</h3>
+                                </div>
+                                <div class="blog-search">
+                                    <form id="search" action="{{ route('admin.searchS') }}" method="get">
+                                        <input type="search" placeholder="Chercher..." name="search" />
+                                        <button type="submit">
+                                            <span><i class="fa fa-search"></i></span>
+                                        </button>
+                                    <input value="{{ $studyarea->id }}" name="studyarea" hidden>
+                                    </form>
+                                </div>
+                            </div>     
+                        </div>
                     </div>   
             </div>
         @foreach($studyarea->modules as $module)

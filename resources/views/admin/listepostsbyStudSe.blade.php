@@ -11,20 +11,22 @@
             </div>
         </div>
         <div class="row pb-10">
-            <div class="col-md-14 mb-25">
-                <a class="btn btn-primary btn-sm" href="{{ route('studyarea',$studyarea->id) }}" role="button"><span class="glyphicon glyphicon-circle-arrow-left"></span>Back</a>
+            <div class="col-md-5"></div>
+            <div class="col-md-6">
+                <a class="btn btn-primary btn-sm" href="{{ route('studyarea',$studyarea->id) }}" role="button"><span class="glyphicon glyphicon-circle-arrow-left"></span>Revenir</a>
             </div>
+            <div class="col-md-5"></div>
         </div>
         <div class="row">
                 <div class="col-xs-12">
                     <div class="course-title">
-                        <h3 style="left:0px;" >search courses</h3>
+                        <h3>Chercher Une Course</h3>
                     </div>
                     <div class="course-form">
                     <form id="search" action="{{ route('admin.searchS') }}" method="get">
-                            <input type="search" placeholder="Search By Course title..." name="search"/>
+                            <input type="search" placeholder="Chercher par le titre..." name="search"/>
                             <input value="{{ $studyarea->id }}" name="studyarea" hidden>
-                            <button type="submit">search</button>
+                            <button type="submit">chercher</button>
                         </form>
                     </div>
                 </div>

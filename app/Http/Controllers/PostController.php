@@ -63,14 +63,12 @@ class PostController extends Controller
                 'type' => 'required|numeric|exists:types,id',
                 'file' => 'required|max:10240'
             ]);
+            
             $user_id = Auth::user()->id;
-
             if ($request->hasFile('file')) {
                 $fileExt = $request->file('file')->getClientOriginalExtension();
                 $fileName = time() . 'docs.' . $fileExt;
                 $request->file('file')->storeAs('public/docs/', $fileName);
-
-
                 $post = new Post();
                 $post->title = $request['title'];
                 $post->description = $request['description'];

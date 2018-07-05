@@ -16,25 +16,24 @@
         </div>
         <div class="row">
             <div class="col-md-14 mb-25">
-                <a class="btn btn-primary btn-sm" href="{{ route('admin.home') }}" role="button"><span class="glyphicon glyphicon-circle-arrow-left"></span>Back</a>
+                <a class="btn btn-primary btn-sm" href="{{ route('admin.home') }}" role="button"><span class="glyphicon glyphicon-circle-arrow-left"></span>Revenir</a>
             </div>
         </div>
         <div class="row">
                 <div class="col-xs-12">
                     <div class="course-title">
-                        <h3 style="left :-414px;" >search courses</h3>
+                        <h3 style="left :-378px;" >Chercher une course</h3>
                     </div>
                     <div class="course-form">
                     <form id="search" action="{{ route('admin.search') }}" method="get">
-                            <input type="search" placeholder="Search By Course title..." name="search" />
-                            <button type="submit">search</button>
+                            <input type="search" placeholder="Chercher par le titre..." name="search" />
+                            <button type="submit">chercher</button>
                         </form>
                     </div>
                 </div>
         </div>
         <div class="row">
             @foreach($posts as $post) 
-                
                     <div class="col-md-4 col-sm-6 col-xs-12">
                         <div class="single-course mb-25">
                             @if( $post->type_id === 1)
@@ -53,7 +52,7 @@
                                 </div>
                             @endif  
                             
-                            <div class="course-content mb-3" style="min-height: 330px;">
+                            <div class="course-content mb-3" style="min-height: 349px;">
                                 <h3 class="text-center text-primary">
                                     <a href="#"> {{ $post->title }} </a>
                                 </h3>
@@ -61,13 +60,13 @@
                                     <h3>
                                         <p class="text-primary"> {{ $post->description }} </p>
                                     </h3>
-                                    <p>By {{$user->first_name}} {{$user->last_name}} / {{$post->updated_at->diffForHumans()}}</p>
                                 </div>
                                 <div class="pt-0">
-                                    <a class="default-btn btn-primary btn-lg" href=" {{ route('display',$post->id) }} ">See it</a>
-                                    <a class="default-btn btn-success btn-lg" href=" {{ route('download',$post->id) }} ">Download</a>
-                                    <a class="default-btn btn-warning btn-lg" href="{{ route('update',$post->id) }}">Modify </a>
-                                    <a class="default-btn btn-danger btn-lg" href=" {{ route('delete',$post->id) }} ">Delete</a>
+                                        <p class="pb">Par : {{$user->first_name}} {{$user->last_name}} / {{$post->updated_at->diffForHumans()}}</p>
+                                    <a class="default-btn btn-primary btn-lg" href=" {{ route('display',$post->id) }} " style="padding: 9px 8px;">Voir</a>
+                                    <a class="default-btn btn-success btn-lg" href=" {{ route('download',$post->id) }} " style="padding: 9px 15px;">Télécharger</a>
+                                    <a class="default-btn btn-warning btn-lg" href="{{ route('update',$post->id) }}" style="padding: 9px 15px;">Modifier </a>
+                                    <a class="default-btn btn-danger btn-lg" href=" {{ route('delete',$post->id) }} " style="padding: 9px 15px;">Supprimer</a>
                                 </div>
                             </div>
                         </div>

@@ -10,20 +10,22 @@
                         <div class="main-menu">
                             <ul>
                                 @if(!Auth::check())
-                                    <li><a href="{{ url('/login') }}">login</a></li>
-                                    <li><a href=" {{ route('identification') }} ">signup</a>
+                                    <li><a href="{{ url('/login') }}">Connexion</a></li>
+                                    <li><a href=" {{ route('identification') }} ">Inscription</a>
+                                    
                                         <ul>
-                                                <li><a href="{{ route('identification') }}">Students</a></li>
-                                                <li><a href=" {{ route('identificationP') }} ">Professors</a></li>
+                                                <li><a href="{{ route('identification') }}">Élève</a></li>
+                                                <li><a href=" {{ route('identificationP') }} ">Professeur</a></li>
                                         </ul>
                                     </li>
+                                    <li><a href="#">Professeurs</a>
                                 @endif
                                 @if(Auth::check())
                                     <li>
                                             <a class="dropdown-item" href="{{ route('logout') }}"
                                                                 onclick="event.preventDefault();
                                                                                 document.getElementById('logout-form').submit();">
-                                                                    {{ __('Logout') }}
+                                                                    {{ __('Déconnexion') }}
                                             </a>
 
                                             <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
@@ -53,8 +55,8 @@
                         <div class="main-menu">
                             <nav>
                                 <ul>
-                                    <li><a href="{{route('admin.home')}}">Home</a></li>
-                                    <li><a href="">Studyareas</a>
+                                    <li><a href="{{route('admin.home')}}">Accueil</a></li>
+                                    <li><a href="">Filières</a>
                                         <ul>
                                             @foreach($studyareas as $studyarea)
                                                 <li><a href="{{ route('studyarea',$studyarea->id) }}"> {{ $studyarea->title }}</a></li>
@@ -91,7 +93,7 @@
                         <div class="main-menu">
                             <nav>
                                 <ul>
-                                    <li><a href="{{route('user.modules')}}">Home</a></li>
+                                    <li><a href="{{route('user.modules')}}">Accueil</a></li>
                                 </ul>
                             </nav>
                         </div>

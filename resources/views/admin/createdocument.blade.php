@@ -18,7 +18,7 @@ Ajout Document
                             <h4 class="panel-title text-center">
                                 <a data-toggle="collapse" data-parent="#accordion" href="#collapseOne">
                                     <span class="glyphicon glyphicon-file">
-                                    </span>POST NEW DOCUMENT</a>
+                                    </span>AJOUTER NOUVEAU DOCUMENT</a>
                             </h4>
                         </div>
                         @if(Session::has('info'))
@@ -33,33 +33,38 @@ Ajout Document
                                 <div class="row">
                                     <div class="col-md-12">
                                         <div class="form-group">
-                                            <input type="text" class="form-control" placeholder="Title" name="title" value="{{ Session('title') ? Session('title') : old('title') }}"/>
+                                            <input type="text" class="form-control" placeholder="Titre" name="title" value="{{ Session('title') ? Session('title') : old('title') }}"/>
                                             @if ($errors->has('title'))
-                                                    <h5>{{ $errors->first('title') }}</h5>
+                                                <span class="help-block">
+                                                    <strong style="color: red;">{{ $errors->first('title') }}</strong>
+                                                </span>
                                              @endif
                                         </div>
                                         <div class="form-group">
                                             <textarea class="form-control" placeholder="Description" rows="3" name="description" value="{{ Session('description') ? Session('description') : old('description') }}"></textarea>
                                             @if ($errors->has('description'))
-                                                    <h5>{{ $errors->first('description') }}</h5>
+                                                <span class="help-block">
+                                                    <strong style="color: red;">{{ $errors->first('description') }}</strong>
+                                                </span>
                                              @endif
                                         </div>
                                     </div>
                                 </div>
+
                                 <div class="row">
                                     <div class="col-md-4">
                                         <div class="form-group">
-                                            <label for="category">Studyarea</label>
+                                            <label for="category">Filière</label>
                                             <select class="form-control" name="studyarea" {{ $errors->has('studyarea') ? ' is-invalid ' : ''}}>
-                                                    <option value="">--Select Studyarea--</option>
+                                                    <option value="">--Sélectionner une Filière--</option>
                                                     @foreach($studyareas as $studyarea => $value)
                                                         <option value="{{ $studyarea }}">{{ $value }}</option>
                                                     @endforeach
                                             </select>
                                             @if ($errors->has('studyarea'))
-                                                <span class="invalid-feedback"></span>
-                                                    <h5>{{ $errors->first('studyarea') }}</h5>
-                                                
+                                                <span class="help-block">
+                                                    <strong style="color: red;">{{ $errors->first('studyarea') }}</strong>
+                                                </span>
                                              @endif
                                         </div>
                                     </div>
@@ -67,11 +72,11 @@ Ajout Document
                                         <div class="form-group">
                                             <label for="category">Module</label>
                                             <select class="form-control" name="module">
-                                                <option>--Select The Studyarea First--</option>
+                                                <option>--Sélectionner d'abord la filière--</option>
                                             </select>
                                             @if ($errors->has('module'))
-                                                <span class="invalid-feedback">
-                                                    <h5>{{ $errors->first('module') }}</h5>
+                                                <span class="help-block">
+                                                    <strong style="color: red;">{{ $errors->first('module') }}</strong>
                                                 </span>
                                              @endif
                                         </div>
@@ -95,14 +100,14 @@ Ajout Document
                                                 <span class="input-group-btn">
                                                     <div class="btn btn-default image-preview-input">
                                                         <span class="glyphicon glyphicon-folder-open"></span>
-                                                        <span class="image-preview-input-title">Browse (Pdf File)</span>
+                                                        <span class="image-preview-input-title">Parcourir (Fichier Pdf)</span>
                                                         <input type="file" accept=".pdf" name="file">
                                                     </div>
                                                 </span>
                                             </div>
                                             @if ($errors->has('file'))
-                                                <span class="invalid-feedback">
-                                                    <h5>{{ $errors->first('file') }}</h5>
+                                                <span class="help-block">
+                                                    <strong style="color: red;">{{ $errors->first('file') }}</strong>
                                                 </span>
                                              @endif
                                         </div>
@@ -112,9 +117,9 @@ Ajout Document
 
                                 <div class="row">
                                     <div class="col-md-12">
-                                    <a class="btn btn-primary btn-sm" href="{{ route('admin.home') }}" role="button"><span class="glyphicon glyphicon-circle-arrow-left"></span>Back</a>
+                                    <a class="btn btn-primary btn-sm" href="{{ route('admin.home') }}" role="button"><span class="glyphicon glyphicon-circle-arrow-left"></span>Revenir</a>
                                         <button type="submit" class="btn btn-danger btn-sm">
-                                            <span class="glyphicon glyphicon-floppy-disk"></span>Publish
+                                            <span class="glyphicon glyphicon-floppy-disk"></span>Publier
                                         </button>
                                     </div>
                                 </div>

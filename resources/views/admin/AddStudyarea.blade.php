@@ -21,7 +21,7 @@
                         <div class="row">
                             <div class="col-md-12">
                                 <div class="form-group">
-                                    <input type="text" class="form-control" placeholder="Title" name="title" value="{{ Session('title') ? Session('title') : old('title') }}" required/> 
+                                    <input type="text" class="form-control" placeholder="Titre" name="title" value="{{ Session('title') ? Session('title') : old('title') }}" required/> 
                                     @if ($errors->has('title'))
                                         <h5>{{ $errors->first('title') }}</h5>
                                     @endif
@@ -59,7 +59,7 @@
                         <div class="row">
                             <div class="col-md-12">
                                 <div class="form-group">
-                                    <input type="text" class="form-control" placeholder="Title" name="title" value="{{ Session('title') ? Session('title') : old('title') }}"/> 
+                                    <input type="text" class="form-control" placeholder="Titre" name="title" value="{{ Session('title') ? Session('title') : old('title') }}"/> 
                                     @if ($errors->has('title'))
                                         <h5>{{ $errors->first('title') }}</h5>
                                     @endif

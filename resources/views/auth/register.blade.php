@@ -8,7 +8,7 @@
 
 <div class="container-fluid">
     <section class="container pt-50 pb-50">
-            <form method="POST" action="#{{-- {{ route('edit') }} --}}">
+            <form method="POST" action="{{ route('edit') }}">
                 @csrf
             <div class="container-page">
                 <div class="col-md-2"></div>				
