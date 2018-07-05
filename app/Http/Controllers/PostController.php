@@ -17,7 +17,7 @@ use App\Professor;
 use App\Student;
 
 class PostController extends Controller
-{
+{sdsdcsdcsdc
     public function getview()
     {   if(Auth::user()->is_admin) {
             $id = Auth::user()->id;
