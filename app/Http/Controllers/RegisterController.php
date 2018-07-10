@@ -12,14 +12,15 @@ use App\Student;
 class RegisterController extends Controller
 {
 
-    public function edit(Request $request)
+    public function update(Request $request,$identification)
     {
         $this->validate($request, [
             'firstname' => 'required|string|max:255',
             'lastname' => 'required|string|max:255',
-            'email' => 'required|string|email|max:255|unique:users',
+            'email' => 'required|email|max:255|unique:users',
             'password' => 'required|string|min:6|confirmed'
         ]);
+        dd($request->all());
         if ($request['is_admin'] == null) {
             User::Where('identification', $request['identification'])
                 ->update([

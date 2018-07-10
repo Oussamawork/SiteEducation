@@ -158,11 +158,6 @@ Route::get('identification', [
     'middleware' => 'guest'
 ]);
 
-Route::post('edit', [
-    'uses' => 'RegisterController@edit',
-    'as' => 'edit'
-]);
-
 Route::get('identificationP', [
     'uses' => 'IdentificationController@getviewP',
     'as' => 'identificationP',
@@ -181,9 +176,9 @@ Route::post('register2', [
     'middleware' => 'guest'
 ]);
 
-Route::post('edit', [
-    'uses' => 'RegisterController@edit',
-    'as' => 'edit'
+Route::put('update/{identification}', [
+    'uses' => 'RegisterController@update',
+    'as' => 'update'
 ]);
 
 Auth::routes();

@@ -8,8 +8,9 @@
 
 <div class="container-fluid">
     <section class="container pt-50 pb-50">
-            <form method="POST" action="{{ route('edit') }}">
+            <form method="POST" action="{{ route('update', $identification ) }}">
                 @csrf
+                @method('PUT')
             <div class="container-page">
                 <div class="col-md-2"></div>				
                 <div class="col-md-8">
@@ -78,7 +79,7 @@
                     </div>	
                 
                     {{-- Sending identification --}}
-                    <input id="identification" type="text" name="identification" value={{ $identification }} hidden>
+                    {{-- <input id="identification" type="text" name="identification" value={{ $identification }} hidden> --}}
 
                     {{-- is_admin or not --}}
                     <input id="is_admin" type="text" name="is_admin" value="{{ $is_admin ?? null }}" hidden>
